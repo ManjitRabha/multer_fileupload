@@ -32,6 +32,7 @@
                   <th scope="col"><h5>Father's Nam</h5></th>
                   <th scope="col"><h5>Course Nam</h5></th>
                   <th scope="col"><h5>Profile Img</h5></th>
+                  <th scope="col"><h5>Download Img</h5></th>
                 </tr>
               </thead>
               <% records.forEach(function(row){%>
@@ -49,6 +50,13 @@
                       height="50"
                       alt="image"
                     />
+                    <%}%>
+                  </td>
+                  <td>
+                    <% if(row.profilepic) {%>
+                    <a href="/myuploads/<%= row.profilepic%>" download
+                      >Download</a
+                    >
                     <%}%>
                   </td>
                 </tr>
