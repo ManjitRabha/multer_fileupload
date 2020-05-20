@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <title>Multer Uploads!</title>
+  </head>
+  <body>
+    <h1 class="text-center py-2">Multer Practices</h1>
+    <section id="display">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-9">
+            <table class="table table-striped">
+              <thead>
+                <tr class="bg-success text-light">
+                  <th scope="col">#</th>
+                  <th scope="col"><h5>Student's Nam</h5></th>
+                  <th scope="col"><h5>Father's Nam</h5></th>
+                  <th scope="col"><h5>Course Nam</h5></th>
+                  <th scope="col"><h5>Profile Img</h5></th>
+                </tr>
+              </thead>
+              <% records.forEach(function(row){%>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><h6><%= row.name %></h6></td>
+                  <td><h6><%= row.fatherName %></h6></td>
+                  <td><h6><%= row.courses %></h6></td>
+                  <td>
+                    <% if (row.profilepic) {%>
+                    <img
+                      src="/myuploads/<%= row.profilepic %>"
+                      width="50"
+                      height="50"
+                      alt="image"
+                    />
+                    <%}%>
+                  </td>
+                </tr>
+
+                <%}) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="addData" class="mt-3">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 border bg-light py-2 rounded">
+            <h3 class="bg-success py-2 text-light">
+              Add Your Data to Database
+            </h3>
+            <hr />
+            <form
+              action="/addData"
+              method="post"
+              class="form-horizontal"
+              enctype="multipart/form-data"
+            >
+              <div class="form-group">
+                <label for="name">Student's Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Student's Name"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fatherName">Father's Name</label>
+                <input
+                  type="text"
+                  name="fatherName"
+                  placeholder="Enter Father's Name"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="courses">Course(s) Name</label>
+                <input
+                  type="text"
+                  name="courses"
+                  placeholder="Enter Course(s) Name"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="profilepic">Student's Image</label>
+                <input type="file" name="profilepic" class="form-control" />
+              </div>
+              <button type="submit" class="btn btn-block btn-success">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

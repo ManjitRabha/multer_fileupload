@@ -1,0 +1,58 @@
+extends layout
+
+block append head
+
+block content
+    div
+        h1.text-center This is Home page
+        hr
+    div
+        .col.md-6
+            each data in records
+                table.table.table-striped
+                    thead
+                        tr
+                        th(scope="col") #
+                        th(scope="col") Student's Name
+                        th(scope="col") Father's Name
+                        th(scope="col") Courses
+                        th(scope="col") Profile Image
+                    tbody
+                        tr
+                        th(scope="row") 1
+                        td= data.name
+                        td Otto
+                        td @mdo
+                    
+    section#add-form
+        .container.d-flex.justify-content-center.align-items-center
+            .col-lg-6.border.bg-light
+                h2.text-center.py-3
+                    u   Add Your Data
+                form(action="/addData", method="post")
+                    .form-group
+                        label(for="name") Student's Name
+                        input(type="text" name="name" placeholder="Enter name" class="form-control")
+                    .form-group
+                        label(for="fatherName") Father's Name
+                        input(type="text" name="fatherName" placeholder="Father's name" class="form-control")
+                    .form-group
+                        label(for="courses") Course Name
+                        input(type="text" name="courses" placeholder="Course Name" class="form-control")
+                    .form-group
+                        label(for="profilepic") Profile Image
+                        input(type="file" name="profilepic" placeholder="Add image" class="form-control")
+                    div.text-center
+                        button.btn.btn-success.btn-block(type="submit") Submit
+
+
+    //-     col-md-6
+    //-         img(src="filename", alt="image")
+    //-         if err != undefine
+    //-         h6= err
+    //- div
+    //-     form(action="/uploadImg", method="POST" enctype="multipart/form-data")
+    //-         .form-group
+    //-             label Upload your file
+    //-             input.form-control(type="file", name="profilepic" placeholder="Add your file")
+    //-         button(type="submit").btn.btn-success.btn-block Submit
